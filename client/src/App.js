@@ -1,17 +1,19 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Navigation from './Navigation';
 
 function App() {
-return (
-  <Router>
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route path="/about" component={About} />
-      <Route path="/account" component={Account} />
-    </Switch>
+  return (
+    <Router>
+      <Navigation />
+      <Routes>
+        <Route path="/" element={Home} />
+        <Route path="/about" element={About} />
+        <Route path="/account" element={Account} />
+      </Routes>
   </Router>
-);
-}
+  );
+  }
 
 function Home() {
   return <h1>Home</h1>;

@@ -4,12 +4,14 @@
 - React for building the client-side UI
 - MongoDB for storing data
 - ML model trained on (DATA)
+## Base set-up
 ### Node.js
 - Server set up
 - `npm init -y`
     - create pakage.json
 - `npm install express mongoose body-parser cors`
     - install dependencies, creates `node_modules`
+- `npm install sqlite3`
 - Fill out `server.js` file
 ### React 
 - Client-side UI
@@ -22,4 +24,10 @@
     - initialize a new React app by running `npx create-react-app .`
     - `npm start` start development server in `client`
 - Edit `App.js` to sets up some basic routing for our React app using the `react-router-dom` library. We have three routes defined: `/`, `/about`, and `/account`.
+- Add navigation to app,`Navigation.js` that renders links to our routes
+    - uses the `Link` component from `react-router-dom`
+- Modify `App.js` to display our `Navigation` component and the content for each route
+    -  imports `Navigation` component and displays it above the `Switch` component that renders routes
+## Running
+- Start the Node.jsand  start the React app by running `npm run dev` in the project directory.
 
