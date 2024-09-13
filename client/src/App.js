@@ -1,30 +1,37 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Navigation from './Navigation';
+import React, { Component } from 'react';
 
-function App() {
-  return (
-    <Router>
-      <Navigation />
-      <Routes>
-        <Route path="/" element={Home} />
-        <Route path="/about" element={About} />
-        <Route path="/account" element={Account} />
-      </Routes>
-  </Router>
-  );
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import Home from './components/Home';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import About from './components/About';
+import Contact from './components/Contact';
+import NotFound from './components/NotFound';
+
+import './App.css';
+
+class App extends Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <Header/>
+
+        <main className="flex-shrink-0">
+          <div className="container">
+            <Routes>
+              <Route exact path="/" element={<Home/>} />
+              <Route path="/about" element={<About/>} />
+              <Route path="/contact" element={<Contact/>} />
+              <Route path="*" element={<NotFound/>} />
+            </Routes>
+          </div>
+        </main>
+
+        <Footer/>
+      </BrowserRouter>
+    )
   }
-
-function Home() {
-  return <h1>Home</h1>;
-}
-
-function About() {
-  return <h1>About</h1>;
-}
-
-function Account() {
-  return <h1>Account</h1>;
 }
 
 export default App;
